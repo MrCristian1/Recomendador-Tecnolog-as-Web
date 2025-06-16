@@ -114,16 +114,14 @@ export default function SimpleForm() {
           <Sparkles className="h-4 w-4" />
           Selección guiada
         </div>
-        <h2 className="text-2xl font-bold mb-2">Cuéntanos sobre tu proyecto</h2>
-        <p className="text-slate-600 dark:text-slate-300">
-          Responde algunas preguntas y te recomendaremos el stack perfecto
-        </p>
+        <h2 className="text-2xl font-bold mb-2 text-slate-900">Cuéntanos sobre tu proyecto</h2>
+        <p className="text-slate-600">Responde algunas preguntas y te recomendaremos el stack perfecto</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-8">
         {/* Project Type */}
         <div className="space-y-4">
-          <label className="text-lg font-semibold flex items-center gap-2">
+          <label className="text-lg font-semibold flex items-center gap-2 text-slate-900">
             <Code2 className="h-5 w-5" />
             ¿Qué tipo de proyecto quieres construir?
           </label>
@@ -135,10 +133,10 @@ export default function SimpleForm() {
               return (
                 <Card
                   key={type.value}
-                  className={`cursor-pointer transition-all duration-300 border-2 transform hover:scale-105 hover:shadow-lg ${
+                  className={`cursor-pointer transition-all duration-300 border-2 transform hover:scale-105 hover:shadow-lg bg-white ${
                     isSelected
-                      ? "border-blue-500 bg-blue-50 dark:bg-blue-950 shadow-md scale-105"
-                      : "border-gray-200 dark:border-gray-700 hover:border-blue-300 hover:bg-blue-50/50 dark:hover:bg-blue-950/30"
+                      ? "border-blue-500 bg-blue-50 shadow-md scale-105"
+                      : "border-gray-200 hover:border-blue-300 hover:bg-blue-50/50"
                   }`}
                   onClick={() => handleProjectTypeChange(type.value)}
                 >
@@ -148,9 +146,9 @@ export default function SimpleForm() {
                         isSelected ? "text-blue-600" : "text-slate-600 group-hover:text-blue-500"
                       }`}
                     />
-                    <h3 className="font-semibold mb-1">{type.label}</h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-300">{type.description}</p>
-                    {isSelected && <Badge className="mt-2 bg-blue-600">Seleccionado</Badge>}
+                    <h3 className="font-semibold mb-1 text-slate-900">{type.label}</h3>
+                    <p className="text-sm text-slate-600">{type.description}</p>
+                    {isSelected && <Badge className="mt-2 bg-blue-600 text-white">Seleccionado</Badge>}
                   </CardContent>
                 </Card>
               )
@@ -160,7 +158,7 @@ export default function SimpleForm() {
 
         {/* Experience Level */}
         <div className="space-y-4">
-          <label className="text-lg font-semibold">Nivel de experiencia</label>
+          <label className="text-lg font-semibold text-slate-900">Nivel de experiencia</label>
           {errors.experienceLevel && <p className="text-red-500 text-sm">{errors.experienceLevel}</p>}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {experienceLevels.map((level) => {
@@ -168,16 +166,16 @@ export default function SimpleForm() {
               return (
                 <Card
                   key={level.value}
-                  className={`cursor-pointer transition-all duration-300 border-2 transform hover:scale-105 hover:shadow-lg ${
+                  className={`cursor-pointer transition-all duration-300 border-2 transform hover:scale-105 hover:shadow-lg bg-white ${
                     isSelected
-                      ? "border-green-500 bg-green-50 dark:bg-green-950 shadow-md scale-105"
-                      : "border-gray-200 dark:border-gray-700 hover:border-green-300 hover:bg-green-50/50 dark:hover:bg-green-950/30"
+                      ? "border-green-500 bg-green-50 shadow-md scale-105"
+                      : "border-gray-200 hover:border-green-300 hover:bg-green-50/50"
                   }`}
                   onClick={() => handleExperienceChange(level.value)}
                 >
                   <CardContent className="p-4 text-center">
-                    <h3 className="font-semibold">{level.label}</h3>
-                    {isSelected && <Badge className="mt-2 bg-green-600">Seleccionado</Badge>}
+                    <h3 className="font-semibold text-slate-900">{level.label}</h3>
+                    {isSelected && <Badge className="mt-2 bg-green-600 text-white">Seleccionado</Badge>}
                   </CardContent>
                 </Card>
               )
@@ -187,23 +185,23 @@ export default function SimpleForm() {
 
         {/* Features */}
         <div className="space-y-4">
-          <label className="text-lg font-semibold">Funcionalidades necesarias (opcional)</label>
+          <label className="text-lg font-semibold text-slate-900">Funcionalidades necesarias (opcional)</label>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {features.map((feature) => {
               const isSelected = formData.features.includes(feature.id)
               return (
                 <Card
                   key={feature.id}
-                  className={`cursor-pointer transition-all duration-300 border-2 transform hover:scale-105 hover:shadow-md ${
+                  className={`cursor-pointer transition-all duration-300 border-2 transform hover:scale-105 hover:shadow-md bg-white ${
                     isSelected
-                      ? "border-purple-500 bg-purple-50 dark:bg-purple-950 shadow-md scale-105"
-                      : "border-gray-200 dark:border-gray-700 hover:border-purple-300 hover:bg-purple-50/50 dark:hover:bg-purple-950/30"
+                      ? "border-purple-500 bg-purple-50 shadow-md scale-105"
+                      : "border-gray-200 hover:border-purple-300 hover:bg-purple-50/50"
                   }`}
                   onClick={() => handleFeatureToggle(feature.id)}
                 >
                   <CardContent className="p-3 text-center">
-                    <p className="text-sm font-medium">{feature.label}</p>
-                    {isSelected && <Badge className="mt-1 text-xs bg-purple-600">✓</Badge>}
+                    <p className="text-sm font-medium text-slate-900">{feature.label}</p>
+                    {isSelected && <Badge className="mt-1 text-xs bg-purple-600 text-white">✓</Badge>}
                   </CardContent>
                 </Card>
               )
@@ -213,7 +211,7 @@ export default function SimpleForm() {
 
         {/* Backend Preference */}
         <div className="space-y-4">
-          <label className="text-lg font-semibold">Preferencia de backend</label>
+          <label className="text-lg font-semibold text-slate-900">Preferencia de backend</label>
           {errors.backendPreference && <p className="text-red-500 text-sm">{errors.backendPreference}</p>}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
@@ -224,17 +222,17 @@ export default function SimpleForm() {
               return (
                 <Card
                   key={pref.value}
-                  className={`cursor-pointer transition-all duration-300 border-2 transform hover:scale-105 hover:shadow-lg ${
+                  className={`cursor-pointer transition-all duration-300 border-2 transform hover:scale-105 hover:shadow-lg bg-white ${
                     isSelected
-                      ? "border-orange-500 bg-orange-50 dark:bg-orange-950 shadow-md scale-105"
-                      : "border-gray-200 dark:border-gray-700 hover:border-orange-300 hover:bg-orange-50/50 dark:hover:bg-orange-950/30"
+                      ? "border-orange-500 bg-orange-50 shadow-md scale-105"
+                      : "border-gray-200 hover:border-orange-300 hover:bg-orange-50/50"
                   }`}
                   onClick={() => handleBackendChange(pref.value)}
                 >
                   <CardContent className="p-4 text-center">
-                    <h3 className="font-semibold mb-1">{pref.label}</h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-300">{pref.desc}</p>
-                    {isSelected && <Badge className="mt-2 bg-orange-600">Seleccionado</Badge>}
+                    <h3 className="font-semibold mb-1 text-slate-900">{pref.label}</h3>
+                    <p className="text-sm text-slate-600">{pref.desc}</p>
+                    {isSelected && <Badge className="mt-2 bg-orange-600 text-white">Seleccionado</Badge>}
                   </CardContent>
                 </Card>
               )
@@ -244,7 +242,7 @@ export default function SimpleForm() {
 
         {/* Technology Preference */}
         <div className="space-y-4">
-          <label className="text-lg font-semibold">Preferencia de tecnologías</label>
+          <label className="text-lg font-semibold text-slate-900">Preferencia de tecnologías</label>
           {errors.technologyPreference && <p className="text-red-500 text-sm">{errors.technologyPreference}</p>}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
@@ -256,17 +254,17 @@ export default function SimpleForm() {
               return (
                 <Card
                   key={pref.value}
-                  className={`cursor-pointer transition-all duration-300 border-2 transform hover:scale-105 hover:shadow-lg ${
+                  className={`cursor-pointer transition-all duration-300 border-2 transform hover:scale-105 hover:shadow-lg bg-white ${
                     isSelected
-                      ? "border-indigo-500 bg-indigo-50 dark:bg-indigo-950 shadow-md scale-105"
-                      : "border-gray-200 dark:border-gray-700 hover:border-indigo-300 hover:bg-indigo-50/50 dark:hover:bg-indigo-950/30"
+                      ? "border-indigo-500 bg-indigo-50 shadow-md scale-105"
+                      : "border-gray-200 hover:border-indigo-300 hover:bg-indigo-50/50"
                   }`}
                   onClick={() => handleTechnologyChange(pref.value)}
                 >
                   <CardContent className="p-4 text-center">
-                    <h3 className="font-semibold mb-1">{pref.label}</h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-300">{pref.desc}</p>
-                    {isSelected && <Badge className="mt-2 bg-indigo-600">Seleccionado</Badge>}
+                    <h3 className="font-semibold mb-1 text-slate-900">{pref.label}</h3>
+                    <p className="text-sm text-slate-600">{pref.desc}</p>
+                    {isSelected && <Badge className="mt-2 bg-indigo-600 text-white">Seleccionado</Badge>}
                   </CardContent>
                 </Card>
               )

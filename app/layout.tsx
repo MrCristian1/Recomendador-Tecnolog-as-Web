@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Recomendador de Tecnologías Web" }],
   viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -30,7 +30,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#3733dc" />
       </head>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
           {children}
         </ThemeProvider>
       </body>

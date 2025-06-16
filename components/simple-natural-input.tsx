@@ -73,14 +73,12 @@ export default function SimpleNaturalInput() {
           <Brain className="h-4 w-4" />
           Descripción en texto
         </div>
-        <h2 className="text-2xl font-bold mb-2">Describe tu proyecto</h2>
-        <p className="text-slate-600 dark:text-slate-300">
-          Nuestra IA analizará tu descripción y te recomendará el stack perfecto
-        </p>
+        <h2 className="text-2xl font-bold mb-2 text-slate-900">Describe tu proyecto</h2>
+        <p className="text-slate-600">Nuestra IA analizará tu descripción y te recomendará el stack perfecto</p>
       </div>
 
       <div className="space-y-4">
-        <h3 className="text-lg font-semibold flex items-center gap-2">
+        <h3 className="text-lg font-semibold flex items-center gap-2 text-slate-900">
           <Sparkles className="h-5 w-5" />
           Ejemplos
         </h3>
@@ -90,7 +88,7 @@ export default function SimpleNaturalInput() {
             return (
               <Card
                 key={index}
-                className="cursor-pointer transition-all duration-300 hover:shadow-lg border-2 border-dashed border-gray-300 dark:border-gray-600 hover:border-purple-400 hover:bg-purple-50/30 dark:hover:bg-purple-950/20 transform hover:scale-105"
+                className="cursor-pointer transition-all duration-300 hover:shadow-lg border-2 border-dashed border-gray-300 hover:border-purple-400 hover:bg-purple-50/30 transform hover:scale-105 bg-white"
                 onClick={() => handleExampleClick(example.text)}
               >
                 <CardContent className="p-4">
@@ -99,11 +97,11 @@ export default function SimpleNaturalInput() {
                     <div>
                       <Badge
                         variant="outline"
-                        className="mb-2 text-xs hover:bg-purple-100 dark:hover:bg-purple-900 transition-colors duration-200"
+                        className="mb-2 text-xs hover:bg-purple-100 transition-colors duration-200"
                       >
                         {example.category}
                       </Badge>
-                      <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">"{example.text}"</p>
+                      <p className="text-sm text-slate-700 leading-relaxed">"{example.text}"</p>
                     </div>
                   </div>
                 </CardContent>
@@ -115,13 +113,13 @@ export default function SimpleNaturalInput() {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-2">
-          <label htmlFor="description" className="text-lg font-semibold block">
+          <label htmlFor="description" className="text-lg font-semibold block text-slate-900">
             Describe tu proyecto
           </label>
           <Textarea
             id="description"
             placeholder="Ej: Quiero una app donde los usuarios se registren y escriban posts..."
-            className="min-h-[150px] text-base transition-all duration-200 focus:ring-2 focus:ring-purple-500 hover:border-purple-300"
+            className="min-h-[150px] text-base transition-all duration-200 focus:ring-2 focus:ring-purple-500 hover:border-purple-300 bg-white text-slate-900"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
